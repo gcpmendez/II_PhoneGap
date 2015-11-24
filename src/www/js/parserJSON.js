@@ -3,24 +3,26 @@ $(document).ready(function() {
 	$.getJSON("json/canchas.json",function(result){
 
   var data = result;
-  var data2='';
-  var poblacionActual = '';
-    for(var item in data){
-      var title = data[item].First_POB1;
+  var data2="";
+  var title = "";
+  var titleAnterior = "";
 
-      if ( poblacionActual.equal(title) ) {
-        data2 += '<p>'+  data[item].First_NOM_ +' </p></br>';
-      } else {
-        data2 += '<p>'+  data[item].First_NOM_ +' </p></br>';
-        var content = '<div data-role="collapsible" data-collapsed="false"><h1>' + title +
-        '</h1>'+  data2 +'</div>';
-      }
-      poblacionActual = title;
-      if (!poblacionActual.equal(title)) {
-          $div.append(content);
-      }
+  for(var i = 0; i < data.length; i++) {
+    title = data[i].First_POB1;
+    if (title != titleAnterior) {
+      for(var j = 0; j < data.length; j++) {
+        titleAnterior = title;
+        if(data[j].First_POB1 == title) {
+          data2 += '<p>'+  data[j].First_NOM_ +' </p>';
 
+        }
+      }
+      var content = '<div data-role="collapsible" data-collapsed="false"><h1>' + title +
+      '</h1>'+  data2 +'</div>';
+      data2 = "";
+      $div.append(content);
     }
+  }
   $('#list_view').collapsibleset('refresh');
   });
 });
