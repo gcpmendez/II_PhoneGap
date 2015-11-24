@@ -31,12 +31,13 @@
     </head>
     <body>
         <script type="text/javascript" src="js/parserJSON.js"></script>
+        <script type="text/javascript" src="js/peticionAJAX.js"></script>
         <title>Canchas baloncesto</title>
 
         <div data-role="header" data-position="fixed" data-mini="true">
             <h3 id="titulo"> Canchas de baloncesto</h3>
         </div>
-
+        <div id="peticion" data-role="collapsible-set" class="ui-content"></div>
         <div data-role="main" class="ui-content">
         <form>
             <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
@@ -45,7 +46,7 @@
         <div id="list_view"  data-role="collapsible-set" class="ui-content" data-fullscreen="true" data-inset="false" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
 
         </div>
-
+        
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
