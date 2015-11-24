@@ -1,12 +1,10 @@
 
-# Speech API de Google
+# phonegap + jquery mobile
 
 Este práctica ha sido desarrollado en la asignatura de **Interfaces Inteligentes** del itinerario de computación del **_Grado en Ingeniería Informática_** de la **ULL**.
 
 Práctica realizada con **Víctor Hernández Pérez** (alu0100697032) y **José Manuel Hernández Hernández** (alu0100775846).
 ## Descripción de la práctica
-
-#### Práctica phonegap + jquery mobile
 1. Instalación de entorno de desarrollo phonegap,   
 2. Desarrollo de página hola mundo.  
 3. Prácticar con objetos de jquery mobile.
