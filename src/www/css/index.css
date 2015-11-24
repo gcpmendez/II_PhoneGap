@@ -102,14 +102,30 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.ui-page .ui-header {
+    background: #2ECCFA !important;
+}
+
+
+#titulo{
+  margin-right: 0%;
+  margin-left: 5%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: 15px;
+  text-align: left;
+  color: white;
+  border-color: black;
 }

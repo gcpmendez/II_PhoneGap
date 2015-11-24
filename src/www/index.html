@@ -21,32 +21,27 @@
 -->
 <html>
     <head>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
 
     </head>
     <body>
         <script type="text/javascript" src="js/parserJSON.js"></script>
-        <title>Hello World</title>
+        <title>Canchas baloncesto</title>
 
-        <!--<div class="app">
-            <h1>Hello PhoneGap</h1>
+        <div data-role="header" data-position="fixed" data-mini="true">
+            <h3 id="titulo"> Canchas de baloncesto</h3>
+        </div>
 
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>-->
-  <div data-role="header" data-position="fixed" data-mini="true">
-      <h3> canchas de BALONCESTO</h3>
-  </div>
-<div data-role="main" class="ui-content">
-<form>
-    <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
-  </form>
-</div>
+        <div data-role="main" class="ui-content">
+        <form>
+            <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
+          </form>
+        </div>
         <div id="list_view"  data-role="collapsible-set" class="ui-content" data-fullscreen="true" data-inset="false" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
 
         </div>
