@@ -26,8 +26,8 @@
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
         <link rel="stylesheet" href="css/index.css">
         <script src="js/jquery-2.1.4.min.js"></script>
-        <script src="js/app.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
         <script>
         function color() {
         StatusBar.backgroundColorByHexString("#2ECCFA");
@@ -47,6 +47,7 @@
     </head>
     <body onload="color();">
         <script type="text/javascript" src="js/parserJSON.js"></script>
+        <script type="text/javascript" src="js/peticionAJAX.js"></script>
         <title>Canchas baloncesto</title>
 
         <div data-role="header" data-position="fixed" data-mini="true">
@@ -54,6 +55,7 @@
             <p id="titulo2">Tenerife</p>
         </div>
 
+        <div id="peticion" data-role="collapsible-set" class="ui-content"></div>
         <div data-role="main" class="ui-content">
         <form>
             <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
@@ -65,7 +67,6 @@
 
 
         <script type="text/javascript" src="cordova.js"></script>
-
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
