@@ -13,7 +13,7 @@ $(document).ready(function() {
       for(var j = 0; j < data.length; j++) {
         titleAnterior = title;
         if(data[j].First_POB1 == title) {
-          data2 += '<p>'+  data[j].First_NOM_ +' </p>';
+          data2 += '<div data-role="collapsible"><h3>'+  data[j].First_NOM_ +'</h3><p>'+ data[j].First_DIR_ +'</p></div>';
 
         }
       }
