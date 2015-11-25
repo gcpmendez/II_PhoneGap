@@ -33,20 +33,50 @@
     </head>
     <body onload="color();">
         <title>Canchas baloncesto</title>
+        <div data-role="page" id="pageone">
+            <div data-role="header" data-position="fixed" data-mini="true">
+                <h3 id="titulo"> Canchas de baloncesto</h3>
+                <div data-role="navbar">
+                <ul>
+                  <li><a href="#">Canchas</a></li>
+                  <li><a href="#pagetwo" data-transition="slide">Población</a></li>
+                </ul>
+              </div>
+            </div>
 
-        <div data-role="header" data-position="fixed" data-mini="true">
-            <h3 id="titulo"> Canchas de baloncesto</h3>
+            <!--<div id="peticion" data-role="collapsible-set" class="ui-content"></div>-->
+
+            <div data-role="main" class="ui-content">
+            <form>
+                <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
+              </form>
+            </div>
+
+            <div id="list_view_canchas"  data-role="collapsibleset" class="ui-content" data-fullscreen="true" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+            </div>
         </div>
 
-        <!--<div id="peticion" data-role="collapsible-set" class="ui-content"></div>-->
+        <div data-role="page" id="pagetwo">
+            <div data-role="header" data-position="fixed" data-mini="true">
+                <h3 id="titulo"> Canchas de baloncesto</h3>
+                <div data-role="navbar">
+                <ul>
+                  <li><a href="#pageone" data-transition="slide" data-direction="reverse">Canchas</a></li>
+                  <li><a href="#">Población</a></li>
+                </ul>
+              </div>
+            </div>
 
-        <div data-role="main" class="ui-content">
-        <form>
-            <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
-          </form>
-        </div>
+            <!--<div id="peticion" data-role="collapsible-set" class="ui-content"></div>-->
 
-        <div id="list_view"  data-role="collapsibleset" class="ui-content" data-fullscreen="true" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+            <div data-role="main" class="ui-content">
+            <form>
+                <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
+              </form>
+            </div>
+
+            <div id="list_view_poblacion"  data-role="collapsibleset" class="ui-content" data-fullscreen="true" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+            </div>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
