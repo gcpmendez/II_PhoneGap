@@ -11,6 +11,7 @@
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>
+  <preference name="StatusBarBackgroundColor" value="#333333"/>
   <preference name="ios-statusbarstyle" value="black-opaque"/>
   <preference name="detect-data-types" value="true"/>
   <preference name="exit-on-suspend" value="false"/>
@@ -38,11 +39,8 @@
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="org.apache.cordova.vibration"/>
-  <icon src="icon.png"/>
-  <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
-  <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
-  <icon src="www/res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi"/>
-  <icon src="www/res/icon/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi"/>
+  <gap:plugin name="cordova-plugin-statusbar" version="1.0.1" source="npm" />
+  <preference name="StatusBarBackgroundColor" value="#ECF0F1" />
   <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry"/>
   <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry" gap:state="hover"/>
   <icon src="www/res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57"/>
@@ -73,6 +71,10 @@
   <allow-intent href="geo:*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
+            <icon src="www/res/icon/android/icon.png" density="ldpi" />
+            <icon src="www/res/icon/android/icon.png" density="mdpi" />
+            <icon src="www/res/icon/android/icon.png" density="hdpi" />
+            <icon src="www/res/icon/android/icon.png" density="xhdpi" />
   </platform>
   <platform name="ios">
     <allow-intent href="itms:*"/>

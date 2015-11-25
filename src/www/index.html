@@ -28,15 +28,33 @@
         <script src="js/jquery-2.1.4.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
 
+        <script>
+        function color() {
+        StatusBar.backgroundColorByHexString("#2ECCFA");
+        }
+        function colorc() {
+        if (StatusBar.isVisible) {
+        document.getElementById("p").style.color = "green";
+        }
+        else {
+        document.getElementById("p").style.color = "red";
+        }
+        }
+        function changer() {
+        document.getElementById("p").style.color = "pink";
+        }
+        </script>
     </head>
-    <body>
+    <body onload="color();">
         <script type="text/javascript" src="js/parserJSON.js"></script>
         <script type="text/javascript" src="js/peticionAJAX.js"></script>
         <title>Canchas baloncesto</title>
 
         <div data-role="header" data-position="fixed" data-mini="true">
             <h3 id="titulo"> Canchas de baloncesto</h3>
+            <p id="titulo2">Tenerife</p>
         </div>
+
         <div id="peticion" data-role="collapsible-set" class="ui-content"></div>
         <div data-role="main" class="ui-content">
         <form>
@@ -46,7 +64,7 @@
         <div id="list_view"  data-role="collapsible-set" class="ui-content" data-fullscreen="true" data-inset="false" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
 
         </div>
-        
+
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
