@@ -27,27 +27,11 @@
         <link rel="stylesheet" href="css/index.css">
         <script src="js/jquery-2.1.4.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
-
-        <script>
-        function color() {
-        StatusBar.backgroundColorByHexString("#2ECCFA");
-        }
-        function colorc() {
-        if (StatusBar.isVisible) {
-        document.getElementById("p").style.color = "green";
-        }
-        else {
-        document.getElementById("p").style.color = "red";
-        }
-        }
-        function changer() {
-        document.getElementById("p").style.color = "pink";
-        }
-        </script>
-    </head>
-    <body onload="color();">
+        <script src="js/statusBarColor.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/parserJSON.js"></script>
         <script type="text/javascript" src="js/peticionAJAX.js"></script>
+    </head>
+    <body onload="color();">
         <title>Canchas baloncesto</title>
 
         <div data-role="header" data-position="fixed" data-mini="true">
@@ -56,15 +40,15 @@
         </div>
 
         <div id="peticion" data-role="collapsible-set" class="ui-content"></div>
+        
         <div data-role="main" class="ui-content">
         <form>
             <input data-type="search" id="filterCollapsibles" data-inset="true" placeholder="Búsqueda de la cancha">
           </form>
         </div>
+
         <div id="list_view"  data-role="collapsible-set" class="ui-content" data-fullscreen="true" data-inset="false" data-filter="true" data-inset="true" id="myFilter" data-input="#filterCollapsibles" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
-
         </div>
-
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

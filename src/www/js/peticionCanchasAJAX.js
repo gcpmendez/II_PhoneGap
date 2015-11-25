@@ -1,6 +1,6 @@
 $(document).ready(function() {
    var $div = $("#list_view");
-	$.getJSON("json/canchas.json",function(result){
+	$.getJSON("http://navegadoresra.esy.es/canchasBaloncesto/peticionCanchas.php",function(result){
 
   var data = result;
   var data2="";
