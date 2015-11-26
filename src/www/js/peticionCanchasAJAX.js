@@ -15,8 +15,10 @@ $(document).ready(function() {
           for(var j = 0; j < data.length; j++) {
             titleAnterior = title;
             if(data[j].First_POB1 == title) {
-              subContent += '<div data-role="collapsible"><h3>'+  data[j].First_NOM_ +'</h3><p>'+ data[j].First_DIR_ +'</p></div>';
-
+              subContent += '<div data-role="collapsible"><h3>'+  data[j].First_NOM_ +
+              '</h3><a href="#" onclick="window.open(\'https://www.google.es/maps?q=\''+data[j].LATDEC+'+'+data[j].LONGDEC
+              +'\', \'_system\');"  class="ui-btn"><img src="res/gmaps.png"><p>'
+              + data[j].First_DIR_ +'<p></a></div>';
             }
           }
           var content = '<div data-role="collapsible" data-collapsed="false"><h1>' + title +
