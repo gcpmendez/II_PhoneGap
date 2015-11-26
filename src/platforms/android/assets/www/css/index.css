@@ -18,9 +18,15 @@
  */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-transform: translate3d(0,0,0);
+-moz-transform: translate3d(0,0,0);
+-ms-transform: translate3d(0,0,0);
+-o-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
 }
 
 body {
+
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
@@ -123,9 +129,61 @@ h1 {
   margin-right: 0%;
   margin-left: 5%;
   margin-top: 3%;
-  margin-bottom: 3%;
+  margin-bottom: 0%;
   font-size: 15px;
   text-align: left;
+}
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+
+
+    body {
+  position:relative;
+}
+
+.intro {position:absolute;
+  left:30px;
+  top:20px;
+  width : 600px;
+  height: 20px;
+}
+
+.demo {
+  position:relative;
+  width : 600px;
+  height : 300px;
+  background-color: #aeaeae;
+  margin-top:40px;
+  margin-left:0px;
+}
+
+.demo a {
+  text-decoration: none !important;
   color: white;
-  border-color: black;
+  height:100%;
+  width:100%;
+}
+
+.demo a.visited {
+  color:white;
+}
+
+.demo #content {
+  background-color: rgb(255, 244, 220);
+  padding:30px;
+  font-weight:600;
+  border: 1px solid #aeaeae;
+  border-top:none;
 }
