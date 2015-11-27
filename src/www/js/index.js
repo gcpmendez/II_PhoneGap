@@ -52,7 +52,7 @@ app.controller('AppCtrl', ['$scope', '$mdBottomSheet','$mdSidenav', '$mdDialog',
         when: '3:08PM',
         notes: "Añadido Material design"
       },
-  
+
     ];
   $scope.alert = '';
   $scope.showListBottomSheet = function($event) {
@@ -128,4 +128,55 @@ app.config(function($mdThemingProvider) {
     .accentPalette('pink');
   $mdThemingProvider.theme('input', 'default')
         .primaryPalette('grey')
+});
+
+
+app.controller('canchastrl', ['$scope', 'external', function($scope, external){
+  console.log("_")
+    $scope.test = function(){
+       console.log("a")
+        external.getData().then(function(result){
+            if(result){
+                 console.log("b")
+                alert(JSON.stringify(result));
+            }
+            else{
+                 console.log("c")
+                alert("Ha ocurrido un error inesperado");
+            }
+        });
+    }
+}]);
+
+app.service('external', ['$http', '$q', function($http, $q){
+	var obj = {};
+	var deferred = $q.defer();
+  console.log("d");
+    obj.getData = function(){
+        $http.jsonp("http://navegadoresra.esy.es/canchasBaloncesto/peticion.php?callback=JSON_CALLBACK")
+        .success(function(data, status, headers, config){
+          console.log("e");
+            deferred.resolve(data, status, headers, config);
+        })
+        .error(function(data, status, headers, config)
+        {
+            console.log("f");
+            deferred.reject(data, status, headers, config);
+        });
+        return deferred.promise;
+    }
+    return obj;
+}]);
+
+app.controller("canchasCtrl", function($scope, $http) {
+  console.log("z");
+  $http.get('http://navegadoresra.esy.es/canchasBaloncesto/peticionCanchas.php').
+    success(function(data, status, headers, config) {
+        console.log(data);
+      $scope.posts = data;
+    }).
+    error(function(data, status, headers, config) {
+        console.log("w");
+      // log error
+    });
 });
