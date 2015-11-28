@@ -3,7 +3,9 @@ md-content.md-default-theme {
 }
 
 md-card {
+  width: 100%;
   background-color: #fff;
+
 }
 md-card h2:first-of-type {
   margin-top: 0;
@@ -40,3 +42,7 @@ md-sidenav ng-md-icon {
 .user-avatar {
   border-radius: 99%;
 }
+
+.layout-padding, .layout-padding > .flex, .layout-padding > .flex-gt-sm, .layout-padding > .flex-md, .layout-padding > .flex-lt-lg {
+  padding: 0px; 
+  }
