@@ -82,18 +82,9 @@ app.config(function($mdThemingProvider) {
 app.controller("canchasCtrl", function($scope, $http) {
   $http.get('http://navegadoresra.esy.es/canchasBaloncesto/peticionCanchas.php').
     success(function(data, status, headers, config) {
-        console.log(data);
       $scope.posts = data;
     }).
     error(function(data, status, headers, config) {
       // log error
     });
-});
-//abrir url externa
-app.directive('href', function() {
-  return {
-    compile: function(element) {
-      element.attr('target', '_blank');
-    }
-  };
 });

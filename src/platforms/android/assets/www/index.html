@@ -71,23 +71,22 @@
           <md-list>
             <md-item ng-repeat="item in posts | filter:search">
               <md-item-content>
-
-                <div layout="row" class="md-tile-left inset" hide-sm>
-                  <div flex="25" class="flex">
-                    <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
-                      <gmaps-avatar style=""></gmaps-avatar>
-                    </a>
+                  <!--<div class="md-tile-left inset" hide-sm>
+                  </div>-->
+                  <div layout="row" class="md-tile-content flex">
+                    <div flex="25" class="flex">
+                      <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
+                        <gmaps-avatar></gmaps-avatar>
+                      </a>
+                    </div>
+                    <div class="">
+                      <h3>{{item.First_POB1}}</h3>
+                      <h4>{{item.First_NOM_}}</h4>
+                      <p>
+                        {{item.First_DIR_}}
+                      </p>
+                    </div>
                   </div>
-
-                  <div flex class="md-tile-content flex">
-                    <h3>{{item.First_POB1}}</h3>
-                    <h4>{{item.First_NOM_}}</h4>
-                    <p>
-                      {{item.First_DIR_}}
-                    </p>
-                  </div>
-                </div>
-
               </md-item-content>
               <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
               <md-divider hide-gt-sm ng-if="!$last"></md-divider>
@@ -111,19 +110,14 @@
           <md-item ng-repeat="item in posts | filter:search | orderBy:'-what'">
             <md-item-content>
 
-              <div layout="row" class="md-tile-left inset" hide-sm>
+              <div layout="row" class="md-tile-content flex">
                 <div flex="25" class="flex">
-                  <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
-                    <gmaps-avatar style=""></gmaps-avatar>
+                  <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
+                    <gmaps-avatar></gmaps-avatar>
                   </a>
                 </div>
-
-                <div flex class="md-tile-content flex">
+                <div style="margin-left:5%;">
                   <h3>{{item.First_NOM_}}</h3>
-                  <h4>{{item.First_POB1}}</h4>
-                  <p>
-                    {{item.First_DIR_}}
-                  </p>
                 </div>
               </div>
 

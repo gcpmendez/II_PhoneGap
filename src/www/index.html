@@ -67,32 +67,15 @@
       md-swipe-right="previous()"
       layout="row" layout-align="center center">
       <md-card flex-gt-sm="90" flex-gt-md="80">
-        <md-card-content>
-          <md-list>
-            <md-item ng-repeat="item in posts | filter:search">
-              <md-item-content>
-                  <!--<div class="md-tile-left inset" hide-sm>
-                  </div>-->
-                  <div layout="row" class="md-tile-content flex">
-                    <div flex="25" class="flex">
-                      <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
-                        <gmaps-avatar></gmaps-avatar>
-                      </a>
-                    </div>
-                    <div class="">
-                      <h3>{{item.First_POB1}}</h3>
-                      <h4>{{item.First_NOM_}}</h4>
-                      <p>
-                        {{item.First_DIR_}}
-                      </p>
-                    </div>
-                  </div>
-              </md-item-content>
-              <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
-              <md-divider hide-gt-sm ng-if="!$last"></md-divider>
-            </md-item>
-            <md-divider></md-divider>
-          </md-list>
+        <md-card-content ng-controller="geoCtrl">
+          <div class="row" ng-show="showResult()">
+               Latitude: {{lat}} <br />
+               Longitude: {{lng}} <br />
+            </div>
+            <div class="row" ng-show="!showResult()">
+                Error : {{error}}
+                Error Code: {{error.code}}
+            </div>
         </md-card-content>
       </md-card>
     </div>
@@ -112,12 +95,12 @@
 
               <div layout="row" class="md-tile-content flex">
                 <div flex="25" class="flex">
-                  <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
+                  <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
                     <gmaps-avatar></gmaps-avatar>
                   </a>
                 </div>
                 <div style="margin-left:5%;">
-                  <h3>{{item.First_NOM_}}</h3>
+                  <h4>{{item.First_NOM_}}</h4>
                 </div>
               </div>
 
