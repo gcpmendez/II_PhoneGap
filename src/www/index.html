@@ -67,15 +67,9 @@
       md-swipe-right="previous()"
       layout="row" layout-align="center center">
       <md-card flex-gt-sm="90" flex-gt-md="80">
-        <md-card-content ng-controller="geoCtrl">
-          <div class="row" ng-show="showResult()">
-               Latitude: {{lat}} <br />
-               Longitude: {{lng}} <br />
-            </div>
-            <div class="row" ng-show="!showResult()">
-                Error : {{error}}
-                Error Code: {{error.code}}
-            </div>
+        <md-card-content>
+          <img src="icon.png" alt="" />
+          <p>Aqui va lo del tiempo o lo que sea</p>
         </md-card-content>
       </md-card>
     </div>
@@ -88,12 +82,12 @@
     md-swipe-right="previous()"
     layout="row" layout-align="center center">
     <md-card flex-gt-sm="90" flex-gt-md="80">
-      <md-card-content>
+      <md-card-content ng-controller="geoCtrl">
         <md-list>
           <md-item ng-repeat="item in posts | filter:search | orderBy:'-what'">
             <md-item-content>
 
-              <div layout="row" class="md-tile-content flex">
+              <div layout="row" class="md-tile-content flex" style="color:{{getDistancia(item.LATDEC, item.LONGDEC)}}">
                 <div flex="25" class="flex">
                   <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
                     <gmaps-avatar></gmaps-avatar>
