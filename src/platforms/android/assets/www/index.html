@@ -6,6 +6,7 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.12.0-rc1/angular-material.css">
+    <script type=”text/javascript” charset=”utf-8″ src=”plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js”></script>
 </head>
 <body ng-app="StarterApp" layout="row" ng-controller="AppCtrl">
   <div layout="column" class="relative" layout-fill role="main">
@@ -68,31 +69,8 @@
       layout="row" layout-align="center center">
       <md-card flex-gt-sm="90" flex-gt-md="80">
         <md-card-content>
-          <md-list>
-            <md-item ng-repeat="item in posts | filter:search">
-              <md-item-content>
-                  <!--<div class="md-tile-left inset" hide-sm>
-                  </div>-->
-                  <div layout="row" class="md-tile-content flex">
-                    <div flex="25" class="flex">
-                      <a href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
-                        <gmaps-avatar></gmaps-avatar>
-                      </a>
-                    </div>
-                    <div class="">
-                      <h3>{{item.First_POB1}}</h3>
-                      <h4>{{item.First_NOM_}}</h4>
-                      <p>
-                        {{item.First_DIR_}}
-                      </p>
-                    </div>
-                  </div>
-              </md-item-content>
-              <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
-              <md-divider hide-gt-sm ng-if="!$last"></md-divider>
-            </md-item>
-            <md-divider></md-divider>
-          </md-list>
+          <img src="icon.png" alt="" />
+          <p>Aqui va lo del tiempo o lo que sea</p>
         </md-card-content>
       </md-card>
     </div>
@@ -105,19 +83,23 @@
     md-swipe-right="previous()"
     layout="row" layout-align="center center">
     <md-card flex-gt-sm="90" flex-gt-md="80">
-      <md-card-content>
+      <md-card-content ng-controller="geoCtrl">
         <md-list>
           <md-item ng-repeat="item in posts | filter:search | orderBy:'-what'">
             <md-item-content>
 
               <div layout="row" class="md-tile-content flex">
                 <div flex="25" class="flex">
-                  <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}">
+                  <!--<a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}" target="_blank" >-->
+                    <a ng-href="#" onclick="cordova.InAppBrowser.open('https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}','_blank','location=yes');">
                     <gmaps-avatar></gmaps-avatar>
                   </a>
                 </div>
                 <div style="margin-left:5%;">
-                  <h3>{{item.First_NOM_}}</h3>
+                  <h4 style="color:{{getVerde(item.LATDEC, item.LONGDEC)}}">{{item.First_NOM_}}</h4>
+                  <p>
+                    {{getDistancia(item.LATDEC, item.LONGDEC)}}
+                  </p>
                 </div>
               </div>
 
@@ -145,10 +127,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.12.0-rc1/angular-material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
 <!--<script src="js/peticionCanchasAJAX.js"></script>-->
-<!--<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
 app.initialize();
-</script>-->
+</script>
 </body>
 </html>

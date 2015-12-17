@@ -9,6 +9,9 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="www/res/icon/android/icon.png" />
     <icon density="mdpi" src="www/res/icon/android/icon.png" />

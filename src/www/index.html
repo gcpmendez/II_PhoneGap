@@ -88,15 +88,18 @@
           <md-item ng-repeat="item in posts | filter:search | orderBy:'-what'">
             <md-item-content>
 
-              <div layout="row" class="md-tile-content flex" style="color:{{getDistancia(item.LATDEC, item.LONGDEC)}}">
+              <div layout="row" class="md-tile-content flex">
                 <div flex="25" class="flex">
-                  <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}" >
-                    <!--a href="#" onclick="window.open('https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}','_system','location=no');" -->
+                  <!--<a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}" target="_blank" >-->
+                    <a ng-href="#" onclick="cordova.InAppBrowser.open('https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}','_blank','location=yes');">
                     <gmaps-avatar></gmaps-avatar>
                   </a>
                 </div>
                 <div style="margin-left:5%;">
-                  <h4>{{item.First_NOM_}}</h4>
+                  <h4 style="color:{{getVerde(item.LATDEC, item.LONGDEC)}}">{{item.First_NOM_}}</h4>
+                  <p>
+                    {{getDistancia(item.LATDEC, item.LONGDEC)}}
+                  </p>
                 </div>
               </div>
 
@@ -124,10 +127,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.12.0-rc1/angular-material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
 <!--<script src="js/peticionCanchasAJAX.js"></script>-->
-<!--<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
 app.initialize();
-</script>-->
+</script>
 </body>
 </html>

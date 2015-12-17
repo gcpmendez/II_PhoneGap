@@ -88,3 +88,70 @@ app.controller("canchasCtrl", function($scope, $http) {
       // log error
     });
 });
+//geolocalizacion
+app.controller("geoCtrl", function($scope) {
+  $scope.lat = "0";
+  $scope.lng = "0";
+  $scope.error = "";
+  $scope.showResult = function () {
+      return $scope.error == "";
+  }
+  $scope.showPosition = function (position) {
+      $scope.lat = position.coords.latitude;
+      $scope.lng = position.coords.longitude;
+      $scope.$apply();
+  }
+  $scope.showError = function (error) {
+      switch (error.code) {
+          case error.PERMISSION_DENIED:
+              $scope.error = "User denied the request for Geolocation."
+              break;
+          case error.POSITION_UNAVAILABLE:
+              $scope.error = "Location information is unavailable."
+              break;
+          case error.TIMEOUT:
+              $scope.error = "The request to get user location timed out."
+              break;
+          case error.UNKNOWN_ERROR:
+              $scope.error = "An unknown error occurred."
+              break;
+      }
+      $scope.$apply();
+  }
+  $scope.getLocation = function () {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
+      }
+      else {
+          $scope.error = "Geolocation is not supported by this browser.";
+      }
+  }
+  $scope.getLocation();
+  //devuelve el color verde si esta a menos de X kilometros para poder cambiar el color de los nombres de las canchas
+  $scope.getVerde = function(lat, long){
+    rad = function(x) {return x*Math.PI/180;}
+    var R     = 6378.137;                     //Radio de la tierra en km
+    var dLat  = rad(lat - $scope.lat);
+    var dLong = rad(long - $scope.lng);
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad($scope.lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+    if(d < 30 )
+      return "green";
+  }
+
+  $scope.getDistancia = function(lat, long){
+    rad = function(x) {return x*Math.PI/180;}
+    var R     = 6378.137;                     //Radio de la tierra en km
+    var dLat  = rad(lat - $scope.lat);
+    var dLong = rad(long - $scope.lng);
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad($scope.lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+    return (d).toFixed(3)*1000+"m";
+  }
+  $scope.getLink = function(lat, long){
+    var fijo = "\'https://www.google.es/maps?q=";
+    return fijo+lat+"+"+long+"\'";
+  }
+});

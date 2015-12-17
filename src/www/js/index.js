@@ -128,7 +128,7 @@ app.controller("geoCtrl", function($scope) {
   }
   $scope.getLocation();
   //devuelve el color verde si esta a menos de X kilometros para poder cambiar el color de los nombres de las canchas
-  $scope.getDistancia = function(lat, long){
+  $scope.getVerde = function(lat, long){
     rad = function(x) {return x*Math.PI/180;}
     var R     = 6378.137;                     //Radio de la tierra en km
     var dLat  = rad(lat - $scope.lat);
@@ -138,5 +138,20 @@ app.controller("geoCtrl", function($scope) {
     var d = R * c;
     if(d < 30 )
       return "green";
+  }
+
+  $scope.getDistancia = function(lat, long){
+    rad = function(x) {return x*Math.PI/180;}
+    var R     = 6378.137;                     //Radio de la tierra en km
+    var dLat  = rad(lat - $scope.lat);
+    var dLong = rad(long - $scope.lng);
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad($scope.lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c;
+    return (d).toFixed(3)*1000+"m";
+  }
+  $scope.getLink = function(lat, long){
+    var fijo = "\'https://www.google.es/maps?q=";
+    return fijo+lat+"+"+long+"\'";
   }
 });
