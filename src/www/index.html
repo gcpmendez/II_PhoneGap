@@ -6,6 +6,7 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.12.0-rc1/angular-material.css">
+    <script type=”text/javascript” charset=”utf-8″ src=”plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js”></script>
 </head>
 <body ng-app="StarterApp" layout="row" ng-controller="AppCtrl">
   <div layout="column" class="relative" layout-fill role="main">
@@ -89,8 +90,8 @@
 
               <div layout="row" class="md-tile-content flex" style="color:{{getDistancia(item.LATDEC, item.LONGDEC)}}">
                 <div flex="25" class="flex">
-                  <!-- a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}" -->
-                    <a href="#" onclick="window.open('https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}','_system','location=no');" >
+                  <a ng-href="https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}" >
+                    <!--a href="#" onclick="window.open('https://www.google.es/maps?q={{item.LATDEC}}+{{item.LONGDEC}}','_system','location=no');" -->
                     <gmaps-avatar></gmaps-avatar>
                   </a>
                 </div>
